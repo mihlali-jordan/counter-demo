@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
 
-function App() {
+const App = () => {
+  const [firstNum, setFirstNum] = React.useState(0);
+  const [secondNum, setSecondNum] = React.useState(0);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Counter App</h1>
+      <input
+        type="number"
+        value={firstNum}
+        onChange={(e) => setFirstNum(parseInt(e.target.value))}
+      />
+      <span>+</span>
+      <input
+        type="number"
+        value={secondNum}
+        onChange={(e) => setSecondNum(parseInt(e.target.value))}
+      />
+      <span>=</span>
+      <span>{firstNum + secondNum}</span>
     </div>
   );
-}
+};
 
 export default App;
